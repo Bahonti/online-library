@@ -5,7 +5,7 @@ import axios from 'axios'
 
 
 class App extends Component {
-    componentWillMount() {
+    componentWillMount() {debugger
         const { setBooks } = this.props;
         axios.get('/books.json').then(({ data }) => {
             setBooks(data)
@@ -14,11 +14,11 @@ class App extends Component {
 
 
     render() {
-        const { books } = this.props;
+        const { books, isReady } = this.props;
         return (
             <ul>
                 {
-                    !books ? 'Загрузка...' :
+                    !isReady ? 'Загрузка...' :
                         books.map(book => (
                             <li>
                                 <b>{book.title}</b> - {book.author}
@@ -31,7 +31,8 @@ class App extends Component {
 }
 
 const mapStateToProps = ({ books }) => ({
-    books: books.items
+    books: books.items,
+    isReady: books.isReady
 });
 const mapDispatchToProps = dispatch => ({
     setBooks: books => dispatch(setBooks(books))
