@@ -1,31 +1,40 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { setBooks } from './actions/books'
-import axios from 'axios'
+import data from './books'
+import Menu from "./components/Menu";
+import { Container } from 'semantic-ui-react'
+import BookCard from "./components/BookCard";
+// import axios from 'axios'
+
+
 
 
 class App extends Component {
 
-    componentWillMount() {
+    componentDidMount() {
         const { setBooks } = this.props;
-        axios.get('/books.json').then(({ data }) => {
-            setBooks(data)
-        });
+        // axios.get('/books.json').then(({ data }) => {
+        //     setBooks(data)
+        // });
+        setBooks(data)
     }
 
     render() {
         const { books, isReady } = this.props;
         return (
-            <ul>
-                {
-                    !isReady ? 'Загрузка...' :
-                        books.map(book => (
-                            <li>
-                                <b>{book.title}</b> - {book.author}
-                            </li>
-                        ))
-                }
-            </ul>
+            <Container>
+                <Menu />
+
+                <ul>
+                    {
+                        !isReady ? 'Загрузка...' :
+                            books.map(book => (
+                                <BookCard {...book}/>
+                            ))
+                    }
+                </ul>
+            </Container>
         );
     }
 }
