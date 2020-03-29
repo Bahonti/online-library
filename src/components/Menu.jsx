@@ -16,7 +16,7 @@ const MenuComponent = () => (
                 name='signup'
                 // onClick={this.handleItemClick}
             >
-                Итого: &nbsp; <b>0</b> руб.
+                Итого: &nbsp; <b>0</b> &nbsp; руб.
             </Menu.Item>
 
             <Menu.Item

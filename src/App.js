@@ -5,6 +5,7 @@ import data from './books'
 import Menu from "./components/Menu";
 import { Container } from 'semantic-ui-react'
 import BookCard from "./components/BookCard";
+import { Card } from 'semantic-ui-react'
 // import axios from 'axios'
 
 
@@ -25,15 +26,14 @@ class App extends Component {
         return (
             <Container>
                 <Menu />
-
-                <ul>
+                <Card.Group itemsPerRow={4}>
                     {
-                        !isReady ? 'Загрузка...' :
-                            books.map(book => (
-                                <BookCard {...book}/>
+                        !isReady ? 'Загрузка...':
+                            books.map((book, i) => (
+                                <BookCard key={i} {...book}/>
                             ))
                     }
-                </ul>
+                </Card.Group>
             </Container>
         );
     }
