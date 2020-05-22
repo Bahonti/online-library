@@ -5,3 +5,10 @@ body {
 .menu {
     margin-bottom: 20px;
 }
+
+.ui.card .image img {
+    height: 250px !important;
+}
+.ui.card .content .header{
+    height: 98px !important;
+}

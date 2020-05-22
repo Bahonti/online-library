@@ -13,7 +13,7 @@ const BookCard = ({title, author, price, image}) => (
         </Card.Content>
         <Card.Content extra>
             <a>
-                <Icon name='rub' />
+                <Icon name='dollar' />
                 {price}
             </a>
         </Card.Content>
