@@ -1,12 +1,11 @@
 import React, {Component} from 'react';
 import data from '../books'
-import Menu from "./Menu";
 import { Container } from 'semantic-ui-react'
-import BookCard from "./BookCard";
+import BookCard from "../containers/BookCard";
 import Filter from "../containers/Filter";
+import Menu from "../containers/Menu";
 import { Card } from 'semantic-ui-react'
 import {setFilter} from "../actions/filter";
-// import axios from 'axios'
 
 
 
@@ -15,9 +14,6 @@ class App extends Component {
 
     componentDidMount() {
         const { setBooks } = this.props;
-        // axios.get('/books.json').then(({ data }) => {
-        //     setBooks(data)
-        // });
         setBooks(data)
     }
 
